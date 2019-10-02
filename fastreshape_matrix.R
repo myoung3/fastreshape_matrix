@@ -80,6 +80,7 @@ cnames <- rep(LETTERS,length=ncol(x))
 
 system.time(a <- reshape_matrix(x,rnames,cnames))
 system.time(b <- fast_reshape_matrix(x,rnames,cnames))
+system.time(melt(x))
 
 stopifnot(all.equal(a,b ))
 
