@@ -36,7 +36,6 @@ reshape_matrix <- function(x,rnames=NULL,cnames=NULL){
                                  times=ncol(x)),
                       colname_=rep( cnames,each=nrow(x))
   )
-  tracemem(x)
   rows <- 1L:nrow(x)
   for(i in 1L:ncol(x)){
     set(outDT, i=rows,j="value",value=x[,i])
