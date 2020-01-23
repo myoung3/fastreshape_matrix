@@ -72,15 +72,3 @@ fast_reshape_matrix <- function(x,rnames=NULL,cnames=NULL){
   outDT[, colname_:=as.character(colname_)]
   outDT[]
 }
-
-x <- matrix(1:1e9,ncol=1e5)
-
-rnames <- rep(letters,length=nrow(x))
-cnames <- rep(LETTERS,length=ncol(x))
-
-system.time(a <- reshape_matrix(x,rnames,cnames))
-system.time(b <- fast_reshape_matrix(x,rnames,cnames))
-system.time(melt(x))
-
-stopifnot(all.equal(a,b ))
-
